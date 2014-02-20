@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ ! Excerpted from "Hello, Android! 3e",
+ ! published by The Pragmatic Bookshelf.
+ ! Copyrights apply to this code. It may not be used to create training material, 
+ ! courses, books, articles, and the like. Contact us if you are in doubt.
+ ! We make no guarantees that this code is fit for any purpose. 
+ ! Visit http://www.pragmaticprogrammer.com/titles/eband3 for more book information.
+-->
+<PreferenceScreen
+   xmlns:android="http://schemas.android.com/apk/res/android">
+   <CheckBoxPreference
+      android:key="autoplay"
+      android:title="@string/autoplay_title"
+      android:summary="@string/autoplay_summary"
+      android:defaultValue="true" />
+   <CheckBoxPreference
+      android:key="bigimage"
+      android:title="@string/bigimage_title"
+      android:summary="@string/bigimage_summary"
+      android:defaultValue="true" />
+   <ListPreference
+        android:key="dominant_hand"
+        android:title="@string/dominant_hand"
+        android:summary="@string/dominant_hand_summary"
+        android:entries="@array/hand_entries"
+        android:entryValues="@array/hand_entryvalues"
+        android:dialogTitle="@string/dominant_hand" />
+   <CheckBoxPreference
+      android:key="onehand"
+      android:title="@string/onehand_title"
+      android:summary="@string/onehand_summary"
+      android:defaultValue="true" />
+   <CheckBoxPreference
+      android:key="record"
+      android:title="@string/record_title"
+      android:summary="@string/record_summary"
+      android:defaultValue="true" />
+</PreferenceScreen>

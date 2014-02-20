@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">Freecell</string>
+	<string name="settings_label">settings&#8230;</string>
+	<string name="settings_title">Freecell settings</string>   	
+	<string name="settings_shortcut">g</string>
+	<string name="undo_label">Undo</string>
+	<string name="redo_label">Redo</string>
+	<string name="newgame_label">New</string>
+	<string name="selectgame_label">Select</string>
+	<string name="setting_label">Setting</string>
+	<string name="history_label">History</string>
+	<string name="load_label">Load</string>
+	<string name="delete_label">Delete</string>
+
+	<string name="autoplay_title">autoplay</string>
+	<string name="autoplay_summary">Cards are moved automatically. </string>
+	<string name="bigimage_title">bigimage</string>
+	<string name="bigimage_summary">A big image is displayed when it points out. </string>
+	<string name="setting_title">Freecell settings</string>
+	<string name="dominant_hand">dominant hand</string>
+	<string name="dominant_hand_summary">The direction out of which big drawing come. </string>
+	<string-array name="hand_entries">
+		<item>Right</item>
+		<item>Left</item>
+	</string-array>	
+	<string-array name="hand_entryvalues">
+		<item>right</item>
+		<item>left</item>
+	</string-array>	
+	<string name="onehand_title">onehand</string>
+	<string name="onehand_summary">Operation with one hand. </string>
+	<string name="record_title">record</string>
+	<string name="record_summary">Record histry. </string>
+
+	<string name="you_win"><center>Congratulation, you win!</center></string>
+	<string name="you_deadlock"><center>Deadlock!</center></string>
+	<string name="game_no">Game # </string>
+	<string name="cards_left">Cards Left : </string>
+	<string name="moves">Moves : </string>
+	<string name="setup_game">A setup of a game number</string>
+	<string name="app_name1">Records</string>
+    <string name="empty">No records!</string>
+</resources>
