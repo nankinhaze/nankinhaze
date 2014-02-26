@@ -39,27 +39,27 @@ public class MySurfaceView extends SurfaceView
 	private float leftOffset = 0;
 	private float topOffset = 0;	
 	private Pack pack;
-	Pile[] piles;
-	Hand hand = new Hand();
-	Card pointedCard = null;
+	public Pile[] piles;
+	private Hand hand = new Hand();
+	private Card pointedCard = null;
 	private final int nOfPile = 16;
-	private final int TABLEAU = 1;
+	private final int COLUMN = 1;
 	private final int FREE_CELL = 2;
 	private final int HOME_CELL = 3;
-	int selpile; // 選択されたPile
-	int despile;
-	int soupile;
-	int nofsc; // 選択されているpileの選択されているカードの枚数
-	int l, m;
-	int tb, fb, nt;
-	int mc;
-	int mp; // 始めに動かせるカードの位置
-	long seed;
-	int cardsLeft; //残りのカード枚数
-	float scale = 1.0F; //画面のスケーリング
-	float shiftx = 0.0F; //画面の右方向へのシフト
-	Paint paint = new Paint();
-	Paint paintText = new Paint();
+	private int selpile; // 選択されたPile
+	private int despile;
+	private int soupile;
+	private int nofsc; // 選択されているpileの選択されているカードの枚数
+	private int l, m;
+	private int tb, fb, nt;
+	private int mc;
+	private int mp; // 始めに動かせるカードの位置
+	private long seed;
+	private int cardsLeft; //残りのカード枚数
+	private float scale = 1.0F; //画面のスケーリング
+	private float shiftx = 0.0F; //画面の右方向へのシフト
+	private Paint paint = new Paint();
+	private Paint paintText = new Paint();
 	private final int NO_SELECT = 1;
 	private final int POINT = 2;
 	private final int SELECT = 3;
@@ -70,16 +70,16 @@ public class MySurfaceView extends SurfaceView
 	private final int EVENT_DOWN = 1;
 	private final int EVENT_UP = 2;
 	private final int EVENT_MOVE = 3;
-	AlertDialog.Builder builder;
-	int c;      // 選択されたpile
-	int selc;	//　選択されたカード位置
+	private AlertDialog.Builder builder;
+	private int c;      // 選択されたpile
+	private int selc;	//　選択されたカード位置
 	private ArrayList<Card> cardbuffer = new ArrayList<Card>(); // 複数枚移動時の一時バッファ
 	public ArrayList<String> record = new ArrayList<String>(); // undo用の移動記録
 	public int recordIndex; // undo redo用インデックス	
 	private boolean moved = false;
 	private int surfaceHeight;
 	private Resources res;
-	Freecell activity;
+	private Freecell activity;
 //	private boolean v = true; 
 	private RecordData records;
 	
@@ -151,18 +151,18 @@ public class MySurfaceView extends SurfaceView
 		paintText.setARGB(255, 255, 255, 255);
 	}
 	
-	public long getseed() {
+	public long getSeed() {
 		return seed;
 	}
 
-	public void setseed(long i) {
+	public void setSeed(long i) {
 		seed = i;
 	}
 
-	public void initpile() {
+	public void initPile() {
 		pack = new Pack(myContext);
 		pack.shuffle(seed);
-		makepiles();
+		makePiles();
 		for (int i = 0; i < 52; i++) {
 			piles[i % 8].placeCard(pack.pickCard());
 		}
@@ -172,14 +172,14 @@ public class MySurfaceView extends SurfaceView
 		activity.redoSetEnabled(false);
 	}
 
-	public void initgame() {
+	public void initGame() {
 		condition = NO_SELECT;
 	}
 	
-	public void setpile(String sd[]) {
+	public void setPile(String sd[]) {
 		String[] pd;
 		pack = new Pack(myContext);
-		makepiles();
+		makePiles();
 // カードの並びの復元
 		nofsc = 0;
 		for (int i = 0; i < 16; i++) {
@@ -210,7 +210,7 @@ public class MySurfaceView extends SurfaceView
 //		Log.d(TAG, "setpile nofsc = " + String.valueOf(nofsc));
 	}
 
-	void makepiles() {
+	void makePiles() {
 		piles = new Pile[nOfPile];
 		for (int i = 0; i < 8; i++) {
 			piles[i] = new Pile();
@@ -219,7 +219,7 @@ public class MySurfaceView extends SurfaceView
 			piles[i].posy = 160;
 			piles[i].areawidth = 64;
 			piles[i].areaheight = 96;
-			piles[i].type = TABLEAU;
+			piles[i].type = COLUMN;
 		}
 		for (int i = 8; i < 12;i++) {
 			piles[i] = new Pile();
@@ -321,7 +321,7 @@ public class MySurfaceView extends SurfaceView
 			penevent = EVENT_MOVE;
 		}
 		if (Prefs.getAutoplay(getContext())) {
-			matrixauto();
+			matrixAuto();
 		}else {
 			matrix();
 		}
@@ -330,7 +330,7 @@ public class MySurfaceView extends SurfaceView
 	}
 
 	// 手動移動時の場合のイベントマトリックス
-	public void matrix() {
+	void matrix() {
 		Log.d(TAG, "matrix" + ", condition = " + String.valueOf(condition) + ", penevent = " + String.valueOf(penevent));
 		switch (condition) {
 		case NO_SELECT:
@@ -416,12 +416,8 @@ public class MySurfaceView extends SurfaceView
 	}
 
 // 自動移動時の場合のイベントマトリックス
-	public void matrixauto() {
+	void matrixAuto() {
 		Log.d(TAG, "matrixauto" + ", condition = " + String.valueOf(condition) + ", penevent = " + String.valueOf(penevent));
-//		final float sin = 0.0f; //180 digree
-//		final float cos = -1.0f;
-//		final float sin = 1.0f; //90 digree
-//		final float cos = 0.0f;
 		final float sin = 0.34202f; //20 digree
 		final float cos = 0.93969f;
 		float topMoved;
@@ -584,14 +580,14 @@ public class MySurfaceView extends SurfaceView
 		}
 		despile = cm; // 行き先pile
 		moved = false;
-		if (MoveToHome()) {
+		if (moveToHome()) {
 		}
-		else if (MoveToFree()) {
-		} else if(piles[despile].type == TABLEAU) {
-			CheckToTablaeu();
+		else if (moveToFree()) {
+		} else if(piles[despile].type == COLUMN) {
+			checkToColumn();
 			if (mp != 0) {
 				moved = true;
-				MoveToTablaeu();
+				moveToColumn();
 			}
 		}
 		lastCheck();
@@ -602,12 +598,13 @@ public class MySurfaceView extends SurfaceView
 		// 移動もしくは選択解除 condition = NO_SELECT
 		piles[selpile].setSelect(-1);
 		hand.clearCard();
-		int cm = checkPile(left, top);  // 押されたパイル
+//		int cm = checkPile(left, top);  // 押されたパイル
+		int cm = selpile;  // 押されたパイル
 		if (cm < 0) {
 			lastCheck();
 			return;
 		}
-		despile = cm; // 行き先pile
+		despile = cm; // 行き先pile 初期値は押されたパイル
 		while (true) {
 			moved = false;
 			if (direction) { // 右回り
@@ -619,7 +616,8 @@ public class MySurfaceView extends SurfaceView
 						if (selpile < despile) {
 							despile = 0;
 						} else {
-							despile = selpile;
+//							despile = selpile;
+							break;
 						}
 				}
 			} else {  // 左周り
@@ -630,23 +628,26 @@ public class MySurfaceView extends SurfaceView
 				if ((7 < selpile && selpile < 12) && (7 < despile && despile < 12)) {
 
 					if (selpile < despile) {
-						despile = 7;
+//						despile = 7;
+						break;
 					} else {
-						despile = selpile;
+//						despile = selpile;
+						despile = 7;
 					}
 				}
 			}
-// Log.d(TAG, "chkmove1" + ", selpile = " + String.valueOf(selpile) + ", despile = " + String.valueOf(despile));
+ Log.d(TAG, "chkmove1" + ", selpile = " + String.valueOf(selpile) + ", despile = " + String.valueOf(despile));
 			if (despile == cm) {
+//			if (despile == selpile) {
 				break;
 			}
 			if (piles[despile].type == FREE_CELL) {
-				MoveToFree();
-			} else if(piles[despile].type == TABLEAU) {
-				CheckToTablaeu();
+				moveToFree();
+			} else if(piles[despile].type == COLUMN) {
+				checkToColumn();
 				if (mp != 0) {
 					moved = true;
-					MoveToTablaeu();
+					moveToColumn();
 				}
 			}
 			if (moved) {
@@ -662,7 +663,7 @@ public class MySurfaceView extends SurfaceView
 			moveCard(soupile, despile, 1);
 			drawSurface();
 		}
-		checkend();
+		checkEnd();
 		checkDeadlock();
 	}
 	
@@ -706,7 +707,7 @@ public class MySurfaceView extends SurfaceView
 		return true;
 	}
 	
-	void checkend() {
+	void checkEnd() {
 		Log.d(TAG, "checkend");
 		if (cardsLeft == 0) {
 			
@@ -752,14 +753,14 @@ public class MySurfaceView extends SurfaceView
 		}
 		moved = false;
 		for (despile = 12; despile < 16; despile++) {
-			MoveToHome();
+			moveToHome();
 			if (moved)
 				return;
 		}
 	}
 
 // ホームセルへの移動
-	boolean MoveToHome() {	
+	boolean moveToHome() {	
 //		Log.d(TAG, "MoveToHome" + ", selpile = " + String.valueOf(selpile) + ", despile = " + String.valueOf(despile));
 		// 行き先がホームセル
 		if (piles[despile].type == HOME_CELL) {
@@ -783,7 +784,7 @@ public class MySurfaceView extends SurfaceView
 	}
 	
 // フリーセルへの移動
-	boolean MoveToFree() {	
+	boolean moveToFree() {	
 		Log.d(TAG ,"MoveToFree nofsc = " + String.valueOf(nofsc));
 		if ((piles[despile].type == FREE_CELL) && (nofsc == 1)) {
 			if (piles[despile].getNumberOfCard() == 0) {
@@ -796,9 +797,9 @@ public class MySurfaceView extends SurfaceView
 		}
 	}
 	
-	boolean CheckToTablaeu() {
-//		Log.d(TAG, "CheckToTablaeu");
-// 行き先がタブロー
+	boolean checkToColumn() {
+//		Log.d(TAG, "checkToColumn");
+// 行き先がカラム
 // 空列よりの移動可能枚数 mc = (1 + f) x 2e ここで、fはフリーセルの個数でeは空列の個数(e乗),但し行先は除く。
 		mp = 0;
 		tb = 0;
@@ -838,8 +839,8 @@ public class MySurfaceView extends SurfaceView
 	return true;
 	}
 	
-	boolean MoveToTablaeu() {
-		Log.d(TAG, "MoveToTablaeu");
+	boolean moveToColumn() {
+//		Log.d(TAG, "moveToColumn");
 		moveCard(selpile, despile, mp);
 		return true;
 	}

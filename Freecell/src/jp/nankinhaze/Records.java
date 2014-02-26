@@ -116,18 +116,18 @@ Log.d("records ", "delete3 " + ", _ID = " + selectId);
 
 		new AlertDialog.Builder(this)
 		.setIcon(android.R.drawable.ic_dialog_info)
-		.setTitle("game#: " + gameNo)
-		.setNegativeButton("load", new DialogInterface.OnClickListener() {
+		.setTitle("Game No. " + gameNo)
+		.setNegativeButton("Load", new DialogInterface.OnClickListener() {
 			public void onClick(DialogInterface dialog, int whichButton) {
 				load(view);
 			}
 		})
-		.setNeutralButton("delete", new DialogInterface.OnClickListener() {
+		.setNeutralButton("Delete", new DialogInterface.OnClickListener() {
 			public void onClick(DialogInterface dialog, int whichButton) {
 				delete(view);
 			}
 		})
-		.setPositiveButton("cancel", new DialogInterface.OnClickListener() {
+		.setPositiveButton("Cancel", new DialogInterface.OnClickListener() {
 		   public void onClick(DialogInterface dialog, int whichButton) {
 		   }
 		})

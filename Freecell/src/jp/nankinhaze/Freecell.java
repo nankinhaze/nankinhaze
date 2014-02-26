@@ -60,8 +60,8 @@ public class Freecell extends Activity {
 		myview = (MySurfaceView)this.findViewById(R.id.myview1);
 		// ここで保存データを取得する。
 		if (!cont) {  // 継続でなければ
-			myview.setseed((long)(Math.random()*1000000 + 1));
-			myview.initpile(); // Pileを初期化
+			myview.setSeed((long)(Math.random()*1000000 + 1));
+			myview.initPile(); // Pileを初期化
 			cont = true;
 		}
 		else { // 継続ならば
@@ -69,7 +69,7 @@ public class Freecell extends Activity {
 				Log.d(TAG, "readfile");
 				br = new BufferedReader(new InputStreamReader(this.openFileInput(path)));			
 				seed = Long.parseLong(br.readLine());
-				myview.setseed(seed);				
+				myview.setSeed(seed);				
 				for (int np = 0; np < 16; np++) {
 	    			sp[np] = br.readLine();
 	    			Log.d(TAG, "read:" + sp[np]);		
@@ -90,7 +90,7 @@ public class Freecell extends Activity {
 					Log.d(TAG, "readfile_close_exception");
 				}
 			}
-			myview.setpile(sp);			
+			myview.setPile(sp);			
 		}
 	}
 
@@ -110,7 +110,7 @@ public class Freecell extends Activity {
 			Log.d(TAG, "writefile");
     		bw = new BufferedWriter(new OutputStreamWriter(this.openFileOutput(path, Context.MODE_PRIVATE)));
     		PrintWriter pw = new PrintWriter(bw); 		
-    		seed = myview.getseed();
+    		seed = myview.getSeed();
 			pw.println(Long.toString(seed));
 			Log.d(TAG, "write:" + Long.toString(seed));			
     		for (int np = 0; np < 16; np++) {
@@ -150,7 +150,7 @@ public class Freecell extends Activity {
 	public void doAction(View view) {
         final EditText editView = new EditText(Freecell.this);
         editView.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED);
-        editView.setText(Long.toString(myview.getseed()));
+        editView.setText(Long.toString(myview.getSeed()));
         new AlertDialog.Builder(Freecell.this).setIcon(android.R.drawable.ic_dialog_info)
         .setTitle(getString(R.string.setup_game))
         //setViewにてビューを設定します。
@@ -161,9 +161,9 @@ public class Freecell extends Activity {
             		 Log.d(TAG, "seed:" + Long.toString(seed));			
          			             		 
             		 if ((0 < seed && seed <= 1000000) || seed == -1 || seed == -2) { 
-            		 	 myview.setseed(seed);
-            		 	 myview.initpile();
-            		 	 myview.initgame();
+            		 	 myview.setSeed(seed);
+            		 	 myview.initPile();
+            		 	 myview.initGame();
             		 	 myview.drawSurface();
                 	 }
              }
@@ -199,9 +199,9 @@ public class Freecell extends Activity {
 	   }
 
 	   public void newGame(View view) {
-			myview.setseed((long)(Math.random()*1000000));
-			myview.initpile(); // Pileを初期化
-			myview.initgame();
+			myview.setSeed((long)(Math.random()*1000000));
+			myview.initPile(); // Pileを初期化
+			myview.initGame();
 			myview.drawSurface();
 	   }
 
@@ -247,9 +247,9 @@ public class Freecell extends Activity {
 		        		String gamerecord = c.getString(2);
 //		        		Toast toast = Toast.makeText(this, String.valueOf(gamenumber), Toast.LENGTH_SHORT);
 //						toast.show();
-		    			myview.setseed(gamenumber);
-           		 	 	myview.initpile();
-           		 	 	myview.initgame();
+		    			myview.setSeed(gamenumber);
+           		 	 	myview.initPile();
+           		 	 	myview.initGame();
           		 	 	String[] rcd = gamerecord.split("\n");
         	    		for (int i = 0; i < numberofmoves; i++) {
         	    			myview.record.add(rcd[i]);

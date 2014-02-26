@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="app_name">Freecell</string>
-	<string name="settings_label">settings&#8230;</string>
+	<string name="settings_label">Settings&#8230;</string>
 	<string name="settings_title">Freecell settings</string>   	
 	<string name="settings_shortcut">g</string>
 	<string name="undo_label">Undo</string>
@@ -13,12 +13,12 @@
 	<string name="load_label">Load</string>
 	<string name="delete_label">Delete</string>
 
-	<string name="autoplay_title">autoplay</string>
+	<string name="autoplay_title">Auto play</string>
 	<string name="autoplay_summary">Cards are moved automatically. </string>
-	<string name="bigimage_title">bigimage</string>
+	<string name="bigimage_title">Big image</string>
 	<string name="bigimage_summary">A big image is displayed when it points out. </string>
 	<string name="setting_title">Freecell settings</string>
-	<string name="dominant_hand">dominant hand</string>
+	<string name="dominant_hand">Dominant hand</string>
 	<string name="dominant_hand_summary">The direction out of which big drawing come. </string>
 	<string-array name="hand_entries">
 		<item>Right</item>
@@ -28,9 +28,9 @@
 		<item>right</item>
 		<item>left</item>
 	</string-array>	
-	<string name="onehand_title">onehand</string>
+	<string name="onehand_title">One hand</string>
 	<string name="onehand_summary">Operation with one hand. </string>
-	<string name="record_title">record</string>
+	<string name="record_title">Record</string>
 	<string name="record_summary">Record histry. </string>
 
 	<string name="you_win"><center>Congratulation, you win!</center></string>
