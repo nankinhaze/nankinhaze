@@ -267,7 +267,7 @@ public class MySurfaceView extends SurfaceView
 		for (int i =12; i <16; i++) {
 			cardsLeft = cardsLeft - piles[i].getNumberOfCard();
 		}
-		canvas.drawText("Freecell   " + res.getString(R.string.game_no) + " " + String.valueOf(seed) + "    " 
+		canvas.drawText(res.getString(R.string.app_name) + "  " + res.getString(R.string.game_no) + " " + String.valueOf(seed) + "    " 
 		+  res.getString(R.string.cards_left) + " " +  String.valueOf(cardsLeft) + "    "
 		+  res.getString(R.string.moves) + " " +  String.valueOf(recordIndex + 1)
 		,0.0f,32.0f, paintText);

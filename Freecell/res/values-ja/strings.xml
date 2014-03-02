@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ok_label">OK</string>
+	<string name="cancel_label">キャンセル</string>
+	<string name="game_no1">ゲームNo. </string>
+	<string name="delete_game_no">削除？ ゲームNo. </string>
+		
+    <string name="app_name">フリーセル </string>
+	<string name="settings_label">設定&#8230;</string>
+	<string name="settings_title">フリーセル 設定</string>   	
+	<string name="settings_shortcut">g</string>
+	<string name="undo_label">戻る</string>
+	<string name="redo_label">送る</string>
+	<string name="newgame_label">新規</string>
+	<string name="selectgame_label">選択</string>
+	<string name="setting_label">設定</string>
+	<string name="history_label">履歴</string>
+	<string name="load_label">読込</string>
+	<string name="delete_label">削除</string>
+	<string name="gameNo_label">ゲームNo.</string>
+	<string name="date_label">日付</string>
+	<string name="moves_label">手数</string>
+			
+	<string name="autoplay_title">自動プレイ </string>
+	<string name="autoplay_summary">自動でカードを移動する。 </string>
+	<string name="bigimage_title">大きなイメージ</string>
+	<string name="bigimage_summary">ポイントした時に大きなイメージを表示する。 </string>
+	<string name="setting_title">フリーセル 設定</string>
+	<string name="dominant_hand">利き手</string>
+	<string name="dominant_hand_summary">利き手の反対側に大きなイメージを表示する。 </string>
+	<string-array name="hand_entries">
+		<item>右</item>
+		<item>左</item>
+	</string-array>	
+	<string-array name="hand_entryvalues">
+		<item>右</item>
+		<item>左</item>
+	</string-array>	
+	<string name="onehand_title">片手</string>
+	<string name="onehand_summary">片手、親指で操作する。 </string>
+	<string name="record_title">記録</string>
+	<string name="record_summary">履歴を記録する。 </string>
+
+	<string name="you_win"><center>おめでとうございます、あなたの勝ちです。</center></string>
+	<string name="you_deadlock"><center>動かせません!</center></string>
+	<string name="game_no">ゲームNo. :</string>
+	<string name="cards_left">残りのカード : </string>
+	<string name="moves">手数 : </string>
+	<string name="setup_game">ゲームNo.の設定</string>
+	<string name="app_name1">履歴</string>
+    <string name="empty">履歴がありません!</string>
+    
+    <string name="about_title">フリーセルについて</string>
+    <string name="about_summary">フリーセルについて、遊び方</string>
+    <string name="about_text">
+        	遊び方\n
+        	\n
+        	場には次のセルがあります。\n
+        	\n
+        	カラムセル：下に８列あります。ゲーム開始時にランダムにカードが配られます。\n
+        	フリーセル：左上に４セルがあります。任意のカードを１枚置くことができます。\n
+        	ホームセル：右上に４セルがあります。ここはスート毎に１からKまで順に積み重ねることができます。\n
+        	\n
+        	ホームセルへすべてのカードを移動したときに勝ちとなります。
+        	各セル間でカードを移動できます。ただし、ホームセルからの移動はできません。
+        	カラムセルには色を交互に、降順にカードを重ねることができます。
+        	移動は１枚毎ですが、可能であれば複数枚を移動できます。\n
+        	\n
+        	自動プレイでの動かし方\n
+        	\n
+        	右へフリックまたはタップ：右方向へ移動\n
+        	左へフリック：左方向へ移動\n
+        	上へフリック：ホームセルへ移動\n
+        	下へドラッグ:ドラッグドロップ\n
+        	
+    </string>
+    
+    
+    
+</resources>

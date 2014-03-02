@@ -1,64 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
- ! Excerpted from "Hello, Android! 3e",
- ! published by The Pragmatic Bookshelf.
- ! Copyrights apply to this code. It may not be used to create training material, 
- ! courses, books, articles, and the like. Contact us if you are in doubt.
- ! We make no guarantees that this code is fit for any purpose. 
- ! Visit http://www.pragmaticprogrammer.com/titles/eband3 for more book information.
--->
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/LinearLayout1"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="horizontal"
-    android:padding="10sp" >
+    android:layout_height="40dp"
+    android:orientation="horizontal" >
 
-<!--  android:background="@drawable/list_color"-->
-   <TextView
-       android:id="@+id/rowid"
-       android:layout_width="0dp"
-       android:layout_height="wrap_content"
-       android:visibility="invisible" />
-
-      <TextView
-      android:id="@+id/gamenumbercolon"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:text=" Game:"
-      android:layout_toRightOf="@id/rowid" />
-   
     <TextView
-       android:id="@+id/gamenumber"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:layout_toRightOf="@id/gamenumbercolon" />
+        android:id="@+id/rowid"
+        android:layout_width="0dp"
+        android:layout_height="fill_parent"
+        android:layout_weight="0" />
     
-   <TextView
-      android:id="@+id/timecolon"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:text=" Date:"
-      android:layout_toRightOf="@id/gamenumber" />
+    <TextView
+        android:id="@+id/gamenumber"
+        android:layout_width="100dp"
+        android:layout_height="fill_parent"
+        android:layout_weight="0"
+        android:gravity="right" />
+    
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="100dp"
+        android:layout_height="fill_parent"
+        android:layout_weight="0"
+        android:gravity="right" />
+    
+    <TextView
+        android:id="@+id/numberofmoves"
+        android:layout_width="100dp"
+        android:layout_height="fill_parent"
+        android:layout_weight="0"
+        android:gravity="right" />
 
-   <TextView
-       android:id="@+id/time"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:layout_toRightOf="@id/timecolon" />
-
-   <TextView
-      android:id="@+id/numberofmovescolon"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:text=" Moves:"
-      android:layout_toRightOf="@id/time" />
- 
-   <TextView
-      android:id="@+id/numberofmoves"
-      android:layout_width="fill_parent"
-      android:layout_height="wrap_content"
-      android:ellipsize="end"
-      android:singleLine="true"
-      android:layout_toRightOf="@id/numberofmovescolon" />
-   
-</RelativeLayout>
+</LinearLayout>

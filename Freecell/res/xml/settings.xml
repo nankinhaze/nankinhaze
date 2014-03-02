@@ -36,4 +36,19 @@
       android:title="@string/record_title"
       android:summary="@string/record_summary"
       android:defaultValue="true" />
-</PreferenceScreen>
+
+   <Preference
+        android:title="@string/about_title"
+        android:summary="@string/about_summary" >
+        <intent 
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="jp.nankinhaze"
+            android:targetClass="jp.nankinhaze.About"
+            />
+   </Preference>
+   
+</PreferenceScreen>  
+   
+   
+   
+   

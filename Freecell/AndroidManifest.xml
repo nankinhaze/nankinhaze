@@ -10,34 +10,41 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name" >
         <activity
-            android:label="@string/app_name"
-            android:name="jp.nankinhaze.Freecell" >
-            <intent-filter >
-               <action android:name="android.intent.action.MAIN" />
+            android:name="jp.nankinhaze.Freecell"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="jp.nankinhaze.Prefs"
+            android:label="@string/setting_title" >
+        </activity>
+        <activity
+            android:name="jp.nankinhaze.Records"
+            android:label="@string/app_name1" >
+        </activity>
+        <activity
+            android:name="jp.nankinhaze.OtherActivity"
+            android:label="other activity" >
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
 
-        <activity android:name="jp.nankinhaze.Prefs"
-             android:label="@string/setting_title">
-		</activity>
-        
-        <activity android:name="jp.nankinhaze.Records"
-             android:label="History">
-		</activity>
-        
-		<activity android:name="jp.nankinhaze.OtherActivity" android:label="other activity">
-			<intent-filter>
-				<action android:name="android.intent.action.SEND" />
-				<category android:name="android.intent.category.DEFAULT" />
-				<data android:mimeType="text/plain" />
-				<data android:mimeType="application/mydata" />
-			</intent-filter>
-		</activity>
+                <category android:name="android.intent.category.DEFAULT" />
 
-</application>
+                <data android:mimeType="text/plain" />
+                <data android:mimeType="application/mydata" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="jp.nankinhaze.About"
+            android:label="@string/about_title" >
+        </activity>
+    </application>
 
-	<uses-permission android:name="android.permission.VIBRATE" />
-<uses-permission android:name="android.permission.INTERNET"/>        
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
 </manifest>
